@@ -3,7 +3,6 @@ package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.text.TextWatcher;
@@ -14,119 +13,122 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.Undefined;
 
 public class MainActivity extends AppCompatActivity {
-    TextView resultTv,solutionTv;
-    MaterialButton buttonC,buttonBracketOpen,buttonBracketClose;
-    MaterialButton buttonDivide,buttonMultiply,buttonPlus,buttonMinus,buttonEquals;
-    MaterialButton button0,button1,button2,button3,button4,button5,button6,button7,button8,button9;
-    MaterialButton buttonAC ,buttonDot;
+    TextView resultTextView,solutionTextView;
+    MaterialButton btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
+    MaterialButton btnDivide,btnMultiply,btnPlus,btnMinus,btnEquals;
+    MaterialButton btnC,btnBracketOpen,btnBracketClose;
+    MaterialButton btnAC ,btnDot;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        resultTv = findViewById(R.id.result_tv);
-        solutionTv = findViewById(R.id.solution_tv);
+        resultTextView = findViewById(R.id.resultTextView);
+        solutionTextView = findViewById(R.id.solutionTextView);
 
         // Set up TextWatchers for solutionTv and resultTv
-        solutionTv.addTextChangedListener(textWatcher);
-        resultTv.addTextChangedListener(textWatcher);
+        solutionTextView.addTextChangedListener(textWatcher);
+        resultTextView.addTextChangedListener(textWatcher);
 
-        buttonC = findViewById(R.id.button_c);
-        buttonC.setOnClickListener(this::onClick);
-        assignId(buttonBracketOpen,R.id.button_open_bracket);
-        assignId(buttonBracketClose,R.id.button_close_bracket);
-        assignId(buttonDivide,R.id.button_divide);
-        assignId(buttonMultiply,R.id.button_multiple);
-        assignId(buttonPlus,R.id.button_plus);
-        assignId(buttonMinus,R.id.button_minus);
-        assignId(buttonEquals,R.id.button_equal);
-        assignId(button0,R.id.button_0);
-        assignId(button1,R.id.button_1);
-        assignId(button2,R.id.button_2);
-        assignId(button3,R.id.button_3);
-        assignId(button4,R.id.button_4);
-        assignId(button5,R.id.button_5);
-        assignId(button6,R.id.button_6);
-        assignId(button7,R.id.button_7);
-        assignId(button8,R.id.button_8);
-        assignId(button9,R.id.button_9);
-        assignId(buttonAC,R.id.button_ac);
-        assignId(buttonDot,R.id.button_dot);
+        btnC = findViewById(R.id.button_c);
+        btnC.setOnClickListener(this::onClick);
+        assignBtn(btnBracketOpen,R.id.button_open_bracket);
+        assignBtn(btnBracketClose,R.id.button_close_bracket);
+        assignBtn(btnDivide,R.id.button_divide);
+        assignBtn(btnMultiply,R.id.button_multiple);
+        assignBtn(btnPlus,R.id.button_plus);
+        assignBtn(btnMinus,R.id.button_minus);
+        assignBtn(btnEquals,R.id.button_equal);
+        assignBtn(btn0,R.id.button_0);
+        assignBtn(btn1,R.id.button_1);
+        assignBtn(btn2,R.id.button_2);
+        assignBtn(btn3,R.id.button_3);
+        assignBtn(btn4,R.id.button_4);
+        assignBtn(btn5,R.id.button_5);
+        assignBtn(btn6,R.id.button_6);
+        assignBtn(btn7,R.id.button_7);
+        assignBtn(btn8,R.id.button_8);
+        assignBtn(btn9,R.id.button_9);
+        assignBtn(btnAC,R.id.button_ac);
+        assignBtn(btnDot,R.id.button_dot);
 
-        updateButtonCState();
+        updateButtonC();
     }
-    private void updateButtonCState() {
-        if (solutionTv.getText().length() < 1 || resultTv.getText().length() < 1) {
-            buttonC.setEnabled(false);
+    private void updateButtonC() {
+        if (solutionTextView.getText().length() < 1 || resultTextView.getText().length() < 1) {
+            btnC.setEnabled(false);
         } else {
-            buttonC.setEnabled(true);
+            btnC.setEnabled(true);
         }
     }
+
+    public void onClick(View view){
+        MaterialButton button = (MaterialButton) view;
+        String buttonText= button.getText().toString();
+        String dataCalculate = solutionTextView.getText().toString();
+
+        if(buttonText.equals("AC")){
+            solutionTextView.setText("");
+            resultTextView.setText("0");
+            return;
+        }
+
+        if(buttonText.equals("=")){
+            solutionTextView.setText(resultTextView.getText());
+            return;
+        }
+
+        if(buttonText.equals("C")){
+            dataCalculate = dataCalculate.substring(0,dataCalculate.length()-1);
+        } else {
+            dataCalculate = dataCalculate + buttonText;
+        }
+
+        solutionTextView.setText(dataCalculate);
+        String finalResult = getResult(dataCalculate);
+        if(!finalResult.equals("Having error")){
+            resultTextView.setText(finalResult);
+        }
+    }
+
+
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            updateButtonCState();
+            updateButtonC();
         }
 
         @Override
         public void afterTextChanged(Editable s) {}
     };
 
-    void assignId(MaterialButton btn, int id){
+    void assignBtn(MaterialButton btn, int id){
         btn = findViewById(id);
         btn.setOnClickListener(this::onClick);
-    }
-
-    public void onClick(View view){
-        MaterialButton button = (MaterialButton) view;
-        String buttonText= button.getText().toString();
-        String dataToCalculate = solutionTv.getText().toString();
-
-        if(buttonText.equals("AC")){
-            solutionTv.setText("");
-            resultTv.setText("0");
-            return;
-        }
-
-        if(buttonText.equals("=")){
-            solutionTv.setText(resultTv.getText());
-            return;
-        }
-
-        if(buttonText.equals("C")){
-            dataToCalculate = dataToCalculate.substring(0,dataToCalculate.length()-1);
-        } else {
-            dataToCalculate = dataToCalculate+buttonText;
-        }
-
-        solutionTv.setText(dataToCalculate);
-        String finalResult = getResult(dataToCalculate);
-        if(!finalResult.equals("Error")){
-            resultTv.setText(finalResult);
-        }
     }
 
     String getResult(String data){
         try {
             Context context = Context.enter();
             context.setOptimizationLevel(-1);
-            Scriptable scriptable = context.initSafeStandardObjects();
-            String finalResult = context.evaluateString(scriptable,data,"Javascript",1,null).toString();
-            Object evaluationResult = context.evaluateString(scriptable, data, "Javascript", 1, null);
+            Scriptable script = context.initSafeStandardObjects();
+            String result = context.evaluateString(script,data,"Javascript",1,null).toString();
+            Object evaluationResult = context.evaluateString(script, data, "Javascript", 1, null);
 
             if (evaluationResult == Undefined.instance) {
-               finalResult = "0";
+                result = "0";
             }
 
-            if(finalResult.endsWith(".0")){
-                finalResult = finalResult.replace(".0", "");
+            if(result.endsWith(".0")){
+                result = result.replace(".0", "");
             }
-            return finalResult;
+            return result;
         } catch(Exception e){
-            return "Error";
+            return "Having error";
         }
     }
 }

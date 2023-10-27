@@ -8,10 +8,10 @@
 
 
     <TextView
-        android:id="@+id/solution_tv"
+        android:id="@+id/solutionTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/result_tv"
+        android:layout_above="@id/resultTextView"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -21,7 +21,7 @@
         android:textSize="32dp" />
 
     <TextView
-        android:id="@+id/result_tv"
+        android:id="@+id/resultTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/buttons_layout"
