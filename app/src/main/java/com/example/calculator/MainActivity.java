@@ -27,31 +27,30 @@ public class MainActivity extends AppCompatActivity {
         resultTextView = findViewById(R.id.resultTextView);
         solutionTextView = findViewById(R.id.solutionTextView);
 
-        // Set up TextWatchers for solutionTv and resultTv
         solutionTextView.addTextChangedListener(textWatcher);
         resultTextView.addTextChangedListener(textWatcher);
 
         btnC = findViewById(R.id.button_c);
         btnC.setOnClickListener(this::onClick);
-        assignBtn(btnBracketOpen,R.id.button_open_bracket);
-        assignBtn(btnBracketClose,R.id.button_close_bracket);
-        assignBtn(btnDivide,R.id.button_divide);
-        assignBtn(btnMultiply,R.id.button_multiple);
-        assignBtn(btnPlus,R.id.button_plus);
-        assignBtn(btnMinus,R.id.button_minus);
-        assignBtn(btnEquals,R.id.button_equal);
-        assignBtn(btn0,R.id.button_0);
-        assignBtn(btn1,R.id.button_1);
-        assignBtn(btn2,R.id.button_2);
-        assignBtn(btn3,R.id.button_3);
-        assignBtn(btn4,R.id.button_4);
-        assignBtn(btn5,R.id.button_5);
-        assignBtn(btn6,R.id.button_6);
-        assignBtn(btn7,R.id.button_7);
-        assignBtn(btn8,R.id.button_8);
-        assignBtn(btn9,R.id.button_9);
-        assignBtn(btnAC,R.id.button_ac);
-        assignBtn(btnDot,R.id.button_dot);
+        getBtn(btnBracketOpen,R.id.button_open_bracket);
+        getBtn(btnBracketClose,R.id.button_close_bracket);
+        getBtn(btnDivide,R.id.button_divide);
+        getBtn(btnMultiply,R.id.button_multiple);
+        getBtn(btnPlus,R.id.button_plus);
+        getBtn(btnMinus,R.id.button_minus);
+        getBtn(btnEquals,R.id.button_equal);
+        getBtn(btn0,R.id.button_0);
+        getBtn(btn1,R.id.button_1);
+        getBtn(btn2,R.id.button_2);
+        getBtn(btn3,R.id.button_3);
+        getBtn(btn4,R.id.button_4);
+        getBtn(btn5,R.id.button_5);
+        getBtn(btn6,R.id.button_6);
+        getBtn(btn7,R.id.button_7);
+        getBtn(btn8,R.id.button_8);
+        getBtn(btn9,R.id.button_9);
+        getBtn(btnAC,R.id.button_ac);
+        getBtn(btnDot,R.id.button_dot);
 
         updateButtonC();
     }
@@ -106,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {}
     };
 
-    void assignBtn(MaterialButton btn, int id){
+    void getBtn(MaterialButton btn, int id){
         btn = findViewById(id);
         btn.setOnClickListener(this::onClick);
     }
