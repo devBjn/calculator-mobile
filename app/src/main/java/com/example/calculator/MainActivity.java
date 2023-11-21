@@ -13,7 +13,7 @@ import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.Undefined;
 
 public class MainActivity extends AppCompatActivity {
-    TextView resultTextView,solutionTextView;
+    TextView resultText,solutionText;
     MaterialButton btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9;
     MaterialButton btnDivide,btnMultiply,btnPlus,btnMinus,btnEquals;
     MaterialButton btnC,btnBracketOpen,btnBracketClose;
@@ -24,38 +24,38 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        resultTextView = findViewById(R.id.resultTextView);
-        solutionTextView = findViewById(R.id.solutionTextView);
+        resultText = findViewById(R.id.resultTextView);
+        solutionText = findViewById(R.id.solutionTextView);
 
-        solutionTextView.addTextChangedListener(textWatcher);
-        resultTextView.addTextChangedListener(textWatcher);
+        solutionText.addTextChangedListener(textWatcher);
+        resultText.addTextChangedListener(textWatcher);
 
-        btnC = findViewById(R.id.button_c);
+        btnC = findViewById(R.id.btnC);
         btnC.setOnClickListener(this::onClick);
-        getBtn(btnBracketOpen,R.id.button_open_bracket);
-        getBtn(btnBracketClose,R.id.button_close_bracket);
-        getBtn(btnDivide,R.id.button_divide);
-        getBtn(btnMultiply,R.id.button_multiple);
-        getBtn(btnPlus,R.id.button_plus);
-        getBtn(btnMinus,R.id.button_minus);
-        getBtn(btnEquals,R.id.button_equal);
-        getBtn(btn0,R.id.button_0);
-        getBtn(btn1,R.id.button_1);
-        getBtn(btn2,R.id.button_2);
-        getBtn(btn3,R.id.button_3);
-        getBtn(btn4,R.id.button_4);
-        getBtn(btn5,R.id.button_5);
-        getBtn(btn6,R.id.button_6);
-        getBtn(btn7,R.id.button_7);
-        getBtn(btn8,R.id.button_8);
-        getBtn(btn9,R.id.button_9);
-        getBtn(btnAC,R.id.button_ac);
-        getBtn(btnDot,R.id.button_dot);
+        getBtn(btnBracketOpen,R.id.btnOpenBracket);
+        getBtn(btnBracketClose,R.id.btnCloseBracket);
+        getBtn(btnDivide,R.id.btnDive);
+        getBtn(btnMultiply,R.id.btnMultiple);
+        getBtn(btnPlus,R.id.btnPlus);
+        getBtn(btnMinus,R.id.btnMinus);
+        getBtn(btnEquals,R.id.btnEquals);
+        getBtn(btn0,R.id.btn0);
+        getBtn(btn1,R.id.btn1);
+        getBtn(btn2,R.id.btn2);
+        getBtn(btn3,R.id.btn3);
+        getBtn(btn4,R.id.btn4);
+        getBtn(btn5,R.id.btn5);
+        getBtn(btn6,R.id.btn6);
+        getBtn(btn7,R.id.btn7);
+        getBtn(btn8,R.id.btn8);
+        getBtn(btn9,R.id.btn9);
+        getBtn(btnAC,R.id.btnAC);
+        getBtn(btnDot,R.id.btnDot);
 
         updateButtonC();
     }
     private void updateButtonC() {
-        if (solutionTextView.getText().length() < 1 || resultTextView.getText().length() < 1) {
+        if (solutionText.getText().length() < 1 || resultText.getText().length() < 1) {
             btnC.setEnabled(false);
         } else {
             btnC.setEnabled(true);
@@ -63,31 +63,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClick(View view){
-        MaterialButton button = (MaterialButton) view;
-        String buttonText= button.getText().toString();
-        String dataCalculate = solutionTextView.getText().toString();
+        MaterialButton btn = (MaterialButton) view;
+        String btnText= btn.getText().toString();
+        String dataCalculate = solutionText.getText().toString();
 
-        if(buttonText.equals("AC")){
-            solutionTextView.setText("");
-            resultTextView.setText("0");
+        if(btnText.equals("AC")){
+            solutionText.setText("");
+            resultText.setText("0");
             return;
         }
 
-        if(buttonText.equals("=")){
-            solutionTextView.setText(resultTextView.getText());
+        if(btnText.equals("=")){
+            solutionText.setText(resultText.getText());
             return;
         }
 
-        if(buttonText.equals("C")){
+        if(btnText.equals("C")){
             dataCalculate = dataCalculate.substring(0,dataCalculate.length()-1);
         } else {
-            dataCalculate = dataCalculate + buttonText;
+            dataCalculate = dataCalculate + btnText;
         }
 
-        solutionTextView.setText(dataCalculate);
+        solutionText.setText(dataCalculate);
         String finalResult = getResult(dataCalculate);
         if(!finalResult.equals("Having error")){
-            resultTextView.setText(finalResult);
+            resultText.setText(finalResult);
         }
     }
 

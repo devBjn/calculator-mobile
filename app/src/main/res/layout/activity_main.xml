@@ -50,7 +50,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_c"
+                android:id="@+id/btnC"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -62,7 +62,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_open_bracket"
+                android:id="@+id/btnOpenBracket"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -74,7 +74,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_close_bracket"
+                android:id="@+id/btnCloseBracket"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -86,7 +86,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_divide"
+                android:id="@+id/btnDive"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -105,7 +105,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_7"
+                android:id="@+id/btn7"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -117,7 +117,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_8"
+                android:id="@+id/btn8"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -129,7 +129,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_9"
+                android:id="@+id/btn9"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -141,7 +141,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_multiple"
+                android:id="@+id/btnMultiple"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -160,7 +160,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_4"
+                android:id="@+id/btn4"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -172,7 +172,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_5"
+                android:id="@+id/btn5"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -184,7 +184,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_6"
+                android:id="@+id/btn6"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -196,7 +196,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_plus"
+                android:id="@+id/btnPlus"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -215,7 +215,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_1"
+                android:id="@+id/btn1"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -227,7 +227,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_2"
+                android:id="@+id/btn2"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -239,7 +239,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_3"
+                android:id="@+id/btn3"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -251,7 +251,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_minus"
+                android:id="@+id/btnMinus"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -270,7 +270,7 @@
             android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_ac"
+                android:id="@+id/btnAC"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
@@ -282,7 +282,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_0"
+                android:id="@+id/btn0"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -294,7 +294,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_dot"
+                android:id="@+id/btnDot"
                 android:backgroundTint="@color/black"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
@@ -306,7 +306,7 @@
                 android:layout_margin="12dp"
                 />
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_equal"
+                android:id="@+id/btnEquals"
                 style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton"
                 android:layout_width="72dp"
                 android:layout_height="72dp"
